@@ -1,5 +1,5 @@
 """
-WSGI config for drink_cost_calculator project.
+WSGI config for dragon_palace project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 

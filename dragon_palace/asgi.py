@@ -1,5 +1,5 @@
 """
-ASGI config for drink_cost_calculator project.
+ASGI config for dragon_palace project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 

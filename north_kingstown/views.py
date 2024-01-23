@@ -49,10 +49,25 @@ FORTUNES = [
     'Happy News is on its way.'
 ]
 
-@login_required
-def calc(request):
+
+def home(request):
     context = {'fortune': random.choice(FORTUNES)}
-    return render(request, 'calculator/calc_template.html', context)
+    return render(request, 'north_kingstown/base_template.html', context)
+
+
+def drinks(request):
+    context = {'fortune': random.choice(FORTUNES)}
+    return render(request, 'north_kingstown/base_template.html', context)
+
+
+def food(request):
+    context = {'fortune': random.choice(FORTUNES)}
+    return render(request, 'north_kingstown/base_template.html', context)
+
+
+def calculator(request):
+    context = {'fortune': random.choice(FORTUNES)}
+    return render(request, 'north_kingstown/calculator_template.html', context)
 
 
 

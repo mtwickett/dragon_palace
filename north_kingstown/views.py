@@ -3,6 +3,8 @@ import random
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 
+from .forms import DrinkForm
+
 
 FORTUNES = [
     'Do not be afraid of competition.',
@@ -51,23 +53,29 @@ FORTUNES = [
 
 
 def home(request):
-    context = {'fortune': random.choice(FORTUNES)}
-    return render(request, 'north_kingstown/base_template.html', context)
+    fortune = {'fortune': random.choice(FORTUNES)}
+    return render(request, 'north_kingstown/base_template.html', fortune)
 
 
-def drinks(request):
-    context = {'fortune': random.choice(FORTUNES)}
-    return render(request, 'north_kingstown/base_template.html', context)
+def drink(request):
+    form = DrinkForm()
+    if request.method == 'POST':
+        form = DrinkForm(request.POST)
+        if form.is_valid():
+            form.save()
+    context = {"form" : form}
+    
+    return render(request, 'north_kingstown/drink_template.html', context)
 
 
 def food(request):
-    context = {'fortune': random.choice(FORTUNES)}
-    return render(request, 'north_kingstown/base_template.html', context)
+    fortune = {'fortune': random.choice(FORTUNES)}
+    return render(request, 'north_kingstown/base_template.html', fortune)
 
 
 def calculator(request):
-    context = {'fortune': random.choice(FORTUNES)}
-    return render(request, 'north_kingstown/calculator_template.html', context)
+    fortune = {'fortune': random.choice(FORTUNES)}
+    return render(request, 'north_kingstown/calculator_template.html', fortune)
 
 
 

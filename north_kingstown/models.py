@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class Drinks(models.Model):
+class Drink(models.Model):
     name = models.CharField(max_length=50)
     alcohol = models.CharField(max_length=50)
     bottle_size = models.IntegerField()

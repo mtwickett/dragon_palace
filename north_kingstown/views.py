@@ -51,12 +51,13 @@ FORTUNES = [
     'Happy News is on its way.'
 ]
 
-
+@login_required
 def home(request):
     fortune = {'fortune': random.choice(FORTUNES)}
     return render(request, 'north_kingstown/base_template.html', fortune)
 
 
+@login_required
 def drink(request):
     form = DrinkForm()
     if request.method == 'POST':
@@ -68,11 +69,13 @@ def drink(request):
     return render(request, 'north_kingstown/drink_template.html', context)
 
 
+@login_required
 def food(request):
     fortune = {'fortune': random.choice(FORTUNES)}
     return render(request, 'north_kingstown/base_template.html', fortune)
 
 
+@login_required
 def calculator(request):
     fortune = {'fortune': random.choice(FORTUNES)}
     return render(request, 'north_kingstown/calculator_template.html', fortune)

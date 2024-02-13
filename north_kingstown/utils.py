@@ -9,11 +9,11 @@ VALUES = {
 
 
 def convert_mls_to_ozs(mls: int) -> float:
-    return round(mls / 29.6, 2)
+    return round(mls / VALUES['mls_ozs_conversion'], VALUES['rounded_digits'])
 
 
 def get_liquor_cost_per_ounce(wholesale_price: float, ounces: float) -> float:
-    return round(wholesale_price / ounces, 2)
+    return round(wholesale_price / ounces, VALUES['rounded_digits'])
 
 
 def get_drink_cost(liquor_cost_per_ounce, multiplier=5) -> float:

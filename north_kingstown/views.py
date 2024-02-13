@@ -70,12 +70,6 @@ def drink(request):
 
 
 @login_required
-def food(request):
-    fortune = {'fortune': random.choice(FORTUNES)}
-    return render(request, 'north_kingstown/base_template.html', fortune)
-
-
-@login_required
 def calculator(request):
     fortune = {'fortune': random.choice(FORTUNES)}
     return render(request, 'north_kingstown/calculator_template.html', fortune)

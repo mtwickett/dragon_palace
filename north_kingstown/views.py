@@ -54,7 +54,7 @@ FORTUNES = [
 @login_required
 def home(request):
     fortune = {'fortune': random.choice(FORTUNES)}
-    return render(request, 'north_kingstown/base_template.html', fortune)
+    return render(request, 'home_template.html', fortune)
 
 
 @login_required
@@ -66,13 +66,13 @@ def drink(request):
             form.save()
     context = {"form" : form}
     
-    return render(request, 'north_kingstown/drink_template.html', context)
+    return render(request, 'drink_template.html', context)
 
 
 @login_required
 def calculator(request):
     fortune = {'fortune': random.choice(FORTUNES)}
-    return render(request, 'north_kingstown/calculator_template.html', fortune)
+    return render(request, 'calculator_template.html', fortune)
 
 
 

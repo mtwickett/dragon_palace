@@ -1,0 +1,11 @@
+{% load static %}
+
+<header>
+    <img src="{% static 'images/[image_name_here].png' %}" />
+</header>
+<nav>
+    <ul>
+        <li><a href="{% url 'drink' %}">Drinks</a></li>
+        <li><a href="{% url 'calculator' %}">Drink Cost Calculator</a></li>
+    </ul>
+</nav>

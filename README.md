@@ -1,6 +1,6 @@
 # Dragon Palace
 
-This project uses Django to create a simple internal application for staff at a Chinese restaurant. Users can update drink entries using Django admin which are stored in a postgres database. The main feature of the app calculates the price of a drink from bottle attributes pulled from the database and pricing attributes inputted by the user.
+This project uses Django to create a simple internal application for staff at a Chinese restaurant. Users can update drink entries in Django admin which are stored in a postgres database. The main feature of the app calculates the price of a drink from bottle attributes pulled from the database and pricing attributes inputted by the user.
 
 ## Set-Up
 

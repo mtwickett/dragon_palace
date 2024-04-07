@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
 from .forms import DrinkForm
+from . import utils
 
 
 FORTUNES = [
@@ -51,28 +52,32 @@ FORTUNES = [
     'Happy News is on its way.'
 ]
 
-@login_required
+# @login_required
 def home(request):
-    fortune = {'fortune': random.choice(FORTUNES)}
-    return render(request, 'home_template.html', fortune)
+    context = {'fortune': random.choice(FORTUNES)}
+    return render(request, 'home_template.html', context)
 
 
-@login_required
+# @login_required
 def drink(request):
     form = DrinkForm()
     if request.method == 'POST':
         form = DrinkForm(request.POST)
         if form.is_valid():
             form.save()
-    context = {"form" : form}
+
+    context = {
+        'form': form,
+        'fortune': random.choice(FORTUNES),
+        }
     
     return render(request, 'drink_template.html', context)
 
 
-@login_required
+# @login_required
 def calculator(request):
-    fortune = {'fortune': random.choice(FORTUNES)}
-    return render(request, 'calculator_template.html', fortune)
+    context = {'fortune': random.choice(FORTUNES)}
+    return render(request, 'calculator_template.html', context)
 
 
 

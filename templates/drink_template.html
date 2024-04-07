@@ -1,14 +1,15 @@
 {% extends 'base_template.html' %}
 
-{% load static %}
-
-<!DOCTYPE html>
-<html lang="en">
+{% block page_title %}
+    Drinks
+{% endblock  %}
+        
+<!--
     <p> Add Drinks </p>
+        <form action = "" method = "post", style="background-color: #E0E0E2;"> 
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="text" value="Submit">
+        </form>
+-->
 
-    <form action = "" method = "post", style="background-color: #E0E0E2;">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Submit">
-    </form>
-</html>

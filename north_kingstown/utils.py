@@ -40,13 +40,15 @@ def calculate_final_drink_cost(drink_cost: float, shrinkage_cost: float, garnish
     return f'${drink_cost + shrinkage_cost + garnish:.2f}'
 
 
+
 def main():
     bottle_ounces = convert_mls_to_ozs(bottle_mls)
     liquor_cost_per_ozs = calculate_liquor_cost_per_oz(bottle_price, bottle_ounces)
     drink_cost = calculate_drink_cost(liquor_cost_per_ozs, pour_cost_percent)
     shrinkage_cost = calculate_shrinkage_cost(drink_cost, shrinkage_percent)
-    print(calculate_final_drink_cost(drink_cost, shrinkage_cost, garnish))
+    calculate_final_drink_cost(drink_cost, shrinkage_cost, garnish)
 
 
 if __name__ == '__main__':
     main()
+    

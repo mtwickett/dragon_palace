@@ -2,6 +2,7 @@ import random
 
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
+from django.http import Http404
 
 from .forms import DrinkForm
 from . import utils
@@ -54,30 +55,37 @@ FORTUNES = [
 
 # @login_required
 def home(request):
-    context = {'fortune': random.choice(FORTUNES)}
-    return render(request, 'home_template.html', context)
+    try:
+        context = {'fortune': random.choice(FORTUNES)}
+        return render(request, 'home_template.html', context)
+    except:
+        raise Http404('Page does not exist')
 
 
 # @login_required
 def drink(request):
-    form = DrinkForm()
-    if request.method == 'POST':
-        form = DrinkForm(request.POST)
-        if form.is_valid():
-            form.save()
-
-    context = {
-        'form': form,
-        'fortune': random.choice(FORTUNES),
-        }
-    
-    return render(request, 'drink_template.html', context)
+    try:
+        form = DrinkForm()
+        if request.method == 'POST':
+            form = DrinkForm(request.POST)
+            if form.is_valid():
+                form.save()
+        context = {
+            'form': form,
+            'fortune': random.choice(FORTUNES),
+            }
+        return render(request, 'drink_template.html', context)
+    except:
+        raise Http404('Page does not exist')
 
 
 # @login_required
 def calculator(request):
-    context = {'fortune': random.choice(FORTUNES)}
-    return render(request, 'calculator_template.html', context)
+    try:
+        context = {'fortune': random.choice(FORTUNES)}
+        return render(request, 'calculator_template.html', context)
+    except:
+        Http404('Page does not exist')
 
 
 
